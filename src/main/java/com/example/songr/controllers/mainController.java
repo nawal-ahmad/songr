@@ -1,6 +1,6 @@
-package controllers;
+package com.example.songr.controllers;
 
-import models.Album;
+import com.example.songr.models.Album;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,9 +13,13 @@ import java.util.List;
 
 @Controller
 public class mainController {
-    @GetMapping("/hello")
-    @ResponseBody
+    @GetMapping("/")
+    public String home(){
+        return "home";
+    }
 
+
+    @GetMapping("/hello")
     public String getHello(@RequestParam(name = "name", defaultValue = "World", required = false) String name, Model model) {
         model.addAttribute("name", name);
         return "hello";
