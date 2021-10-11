@@ -15,6 +15,13 @@
             <p>length in seconds: <span th:text="${album.length}"></span></p>
         </div>
     </div>
+    <div>
+        <form action="/addAlbum" method="post">
+            <p>Artist</p><input type="text" name="artest"/></br>
+            <p>Title</p><input type="text" name="title"/></br>
+            <button type="submit">Submit</button>
+        </form>
+    </div>
 
 
 </body>
