@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="albums.css" th:href="@{albums.css}">
 </head>
 <body>
-    <form action="#" th:action="@{/newAlbum}" th:object="${newAlbum}"  method="post">
+    <form action="#" th:action="@{/addAlbum}" th:object="${newAlbum}"  method="post">
         <fieldset>
             <legend>Add New Album</legend>
             <p>title: <input name="title" type="text" field="*{title}" /></p>
