@@ -10,8 +10,8 @@ public class Album {
 
     private String title;
     private String artist;
-    private int songCount;
-    private float length;
+    private double songCount;
+    private double length;
     private String imgUrl;
 
     public Album() {
@@ -23,6 +23,14 @@ public class Album {
         this.songCount = songCount;
         this.length = length;
         this.imgUrl = imgUrl;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 
     public String getTitle() {
@@ -42,7 +50,7 @@ public class Album {
     }
 
     public int getSongCount() {
-        return songCount;
+        return (int) songCount;
     }
 
     public void setSongCount(int songCount) {
