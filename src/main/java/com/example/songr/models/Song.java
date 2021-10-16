@@ -10,6 +10,7 @@ public class Song {
     private String title;
     private int length;
     private int trackNumber;
+
     @ManyToOne()
     private Album album;
 
@@ -21,6 +22,10 @@ public class Song {
         this.length = length;
         this.trackNumber = trackNumber;
     }
+
+    public Song(String title, int length, Album newAlbum) {
+    }
+
 
     public int getId() {
         return id;
