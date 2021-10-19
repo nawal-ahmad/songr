@@ -6,18 +6,7 @@
     <link rel="stylesheet" href="albums.css" th:href="@{albums.css}">
 </head>
 <body>
-<form action="#" th:action="@{/addAlbum}" th:object="${addAlbum}" method="post">
-    <fieldset>
-        <legend>Add New Album</legend>
-        <p>Title: <input name="title" type="text" field="*{title}"/></p>
-        <p>Artist: <input name="artist" type="text" field="*{artist}"/></p>
-        <p>Number of songs: <input name="songCount" type="number" field="*{songCount}"/></p>
-        <p>Length in seconds: <input name="length" type="number" field="*{length}"/></p>
-        <p>Cover: <input name="imgUrl" type="text" field="*{imgUrl}"/></p>
-        <p><input type="submit" value="Submit"/> <input type="reset" value="Reset"/></p>
-    </fieldset>
-</form>
-
+<h1>Album List</h1>
 <div class="bigDiv">
     <div class="card" th:each="album : ${albums}">
         <img th:src="${album.imgUrl}" alt="Avatar" style="width:100%">

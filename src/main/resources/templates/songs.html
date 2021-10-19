@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="albums.css" th:href="@{albums.css}">
+
+    <title>Songs</title>
+</head>
+<body>
+
+<h1>Songs List</h1>
+
+<div class="bigDiv">
+    <div class="card" th:each="song : ${songs}">
+        <img th:src="${song.album.imgUrl}" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>Song: <span th:text="${song.title}"></span></b></h4>
+            <p>From Album: <span th:text="${song.album.title}"></span></p>
+            <p>Length: <span th:text="${song.length}"></span></p>
+            <p>Track Number: <span th:text="${song.trackNumber}"></span></p>
+
+        </div>
+    </div>
+</div>
+
+</body>
+</html>

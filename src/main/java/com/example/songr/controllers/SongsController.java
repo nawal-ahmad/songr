@@ -2,6 +2,7 @@ package com.example.songr.controllers;
 
 import com.example.songr.models.Album;
 import com.example.songr.models.Song;
+import com.example.songr.models.SongDTO;
 import com.example.songr.repositories.AlbumRepository;
 import com.example.songr.repositories.SongRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -22,18 +23,23 @@ public class SongsController {
     @Autowired
     AlbumRepository albumRepository;
 
-    @GetMapping("/allSongs")
+
+    @GetMapping("/songs")
     public String getAllSongs(Model model){
-        model.addAttribute("song", new Song());
         model.addAttribute("songs",songRepository.findAll());
-        model.addAttribute("albums",albumRepository.findAll());
-        return "allSongs";
+        return "songs";
+    }
+
+    @GetMapping("/addSong")
+    public String addSongForm(){
+        return "addSong";
     }
 
     @PostMapping("/addSong")
-    public RedirectView addSong( @ModelAttribute Song song){
-        System.out.println(song.getAlbum().getSongs());
-        songRepository.save(song);
-        return new RedirectView("/allSongs");
+    public RedirectView addSong(@ModelAttribute SongDTO songDto){
+        Album album = albumRepository.findByTitle(songDto.getAlbumTitle());
+        Song newSong = new Song(songDto.getTitle(), songDto.getLength(),songDto.getTrackNumber(),album);
+        songRepository.save(newSong);
+        return new RedirectView("/songs");
     }
 }

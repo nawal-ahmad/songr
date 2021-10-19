@@ -1,36 +1,19 @@
 package com.example.songr.models;
 
-import javax.persistence.*;
-
-@Entity
-public class Song {
-
+public class SongDTO {
     private String title;
     private int length;
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "track_number", nullable = false)
     private Long trackNumber;
+    private String albumTitle;
 
-    @ManyToOne()
-    @JoinColumn(name = "album_id", nullable = false)
-    private Album album;
-
-    public Song() {
+    public SongDTO() {
     }
 
-    public Song(String title, int length, Long trackNumber) {
+    public SongDTO(String title, int length, Long trackNumber, String albumTitle) {
         this.title = title;
         this.length = length;
         this.trackNumber = trackNumber;
-    }
-
-    public Song(String title, int length, Long trackNumber, Album album) {
-        this.title = title;
-        this.length = length;
-        this.trackNumber = trackNumber;
-        this.album=album;
+        this.albumTitle = albumTitle;
     }
 
     public String getTitle() {
@@ -57,11 +40,11 @@ public class Song {
         this.trackNumber = trackNumber;
     }
 
-    public Album getAlbum() {
-        return album;
+    public String getAlbumTitle() {
+        return albumTitle;
     }
 
-    public void setAlbum(Album album) {
-        this.album = album;
+    public void setAlbumTitle(String albumTitle) {
+        this.albumTitle = albumTitle;
     }
 }
