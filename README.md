@@ -2,10 +2,28 @@
 
 An application created by [Spring Initializer](https://start.spring.io/)
 
-in this application There is 
-1. Home page. ("/")
-2. Hello page. ("/hello")
-3. Capitalize page. ("/capitalize")
-4. albums page list some songs and form allow visitor adding a new album to the page.
+Website have the below endpoints:
 
+**Home Page**
+http://localhost:8080/
 
+**Hello Page**
+http://localhost:8080/hello
+
+**Capitalize Page**
+http://localhost:8080/capitalize/{word}
+
+**Albums Page**
+http://localhost:8080/albums
+
+**add new album page**
+http://localhost:8080/addAlbum
+
+**Songs Page**
+http://localhost:8080/songs
+
+**add song page**
+http://localhost:8080/addSong
+
+**Single specific album songs**
+http://localhost:8080/albumInfo/{id}

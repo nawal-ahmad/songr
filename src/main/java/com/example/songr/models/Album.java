@@ -8,16 +8,16 @@ public class Album {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+    private Long id;
 
     private String title;
     private String artist;
-    private double songCount;
-    private double length;
+    private int songCount;
+    private int length;
     private String imgUrl;
-    @OneToMany()
-    private List<Song> songs;
 
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
+    private List<Song> songs;
 
     public Album() {
     }
@@ -30,11 +30,11 @@ public class Album {
         this.imgUrl = imgUrl;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Long id) {
         this.id = id;
     }
 
@@ -54,16 +54,16 @@ public class Album {
         this.artist = artist;
     }
 
-    public int getSongCount() {
-        return (int) songCount;
+    public double getSongCount() {
+        return songCount;
     }
 
     public void setSongCount(int songCount) {
         this.songCount = songCount;
     }
 
-    public int getLength() {
-        return (int) length;
+    public double getLength() {
+        return length;
     }
 
     public void setLength(int length) {

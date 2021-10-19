@@ -6,29 +6,20 @@
     <link rel="stylesheet" href="albums.css" th:href="@{albums.css}">
 </head>
 <body>
-    <form action="#" th:action="@{/addAlbum}" th:object="${addAlbum}"  method="post">
-        <fieldset>
-            <legend>Add New Album</legend>
-            <p>title: <input name="title" type="text" field="*{title}" /></p>
-            <p>artist: <input name="artist" type="text" field="*{artist}" /></p>
-            <p>count: <input name="songCount" type="number" field="*{songCount}"/></p>
-            <p>length: <input name="length" type="number" field="*{length}"/></p>
-            <p>url: <input name="imgUrl" type="text" field="*{imgUrl}" /></p>
-            <p><input type="submit" value="Submit" /> <input type="reset" value="Reset" /></p>
-        </fieldset>
-    </form>
+<h1>Album List</h1>
+<div class="bigDiv">
+    <div class="card" th:each="album : ${albums}">
+        <img th:src="${album.imgUrl}" alt="Avatar" style="width:100%">
+        <div class="container">
+            <h4><b>Album: <span th:text="${album.title}"></span></b></h4>
+            <p>Artist: <span th:text="${album.artist}"></span></p>
+            <p>Number of songs: <span th:text="${album.songCount}"></span></p>
+            <p>Length in seconds: <span th:text="${album.length}"></span></p>
+            <a th:href="'/albumInfo/'+${album.id}">Show Song</a>
 
-    <div class="bigDiv">
-        <div class="card" th:each="album : ${albums}">
-            <img th:src="${album.imgUrl}" alt="Avatar" style="width:100%">
-            <div class="container">
-                <h4><b>album: <span th:text="${album.title}"></span></b></h4>
-                <p>artist: <span th:text="${album.artist}"></span></p>
-                <p>number of songs: <span th:text="${album.songCount}"></span></p>
-                <p>length in seconds: <span th:text="${album.length}"></span></p>
-            </div>
         </div>
     </div>
+</div>
 
 </body>
 </html>
