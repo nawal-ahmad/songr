@@ -43,6 +43,7 @@ public class AlbumsController {
         return "albums";
     }
 
+
     @GetMapping("/addAlbum")
     public String addAlbumForm(){
         return "addAlbum";
