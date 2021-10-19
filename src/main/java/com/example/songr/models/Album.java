@@ -15,7 +15,7 @@ public class Album {
     private int length;
     private String imgUrl;
 
-    @OneToMany(mappedBy = "album")
+    @OneToMany(mappedBy = "album", fetch = FetchType.EAGER)
     private List<Song> songs;
 
     public Album() {

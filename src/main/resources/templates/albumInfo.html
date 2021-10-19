@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Single Album</title>
+    <link rel="stylesheet" href="albums.css" th:href="@{albums.css}">
+</head>
+<body>
+<h1 th:text="'Album:' + ${album.title}" > All Songs</h1>
+<div class="bigDiv">
+    <div class="container">
+      <p>Artist: <span th:text="${album.artist}"></span></p>
+      <p>Length in seconds: <span th:text="${album.length}"></span></p>
+    </div>
+  <div class="bigDiv">
+    <div class="card" th:each="song : ${songs} ">
+      <div class="container">
+        <h4><b>Song: <span th:text="${song.title}"></span></b></h4>
+        <p>Length: <span th:text="${song.length}"></span></p>
+        <p>Track Number: <span th:text="${song.trackNumber}"></span></p>
+      </div>
+    </div>
+  </div>
+
+
+    </div>
+</body>
+</html>
